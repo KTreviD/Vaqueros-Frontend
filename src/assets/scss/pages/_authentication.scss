@@ -35,12 +35,13 @@
   background-size: cover;
 
   .bg-overlay {
+    // Reemplazamos el gradiente naranja/rojo por tu verde oscuro
     background: linear-gradient(
       to right,
-      var(--#{$prefix}danger),
-      var(--#{$prefix}orange)
+      #0a261a, /* <-- ESTE ES TU VERDE (extraído del logo) */
+      #1a3f31  /* Un tono ligeramente más oscuro para el degradado */
     );
-    opacity: 0.82;
+    opacity: 0.75; // Aumentamos un poco la opacidad para que el verde domine sobre la imagen de fondo
   }
 }
 

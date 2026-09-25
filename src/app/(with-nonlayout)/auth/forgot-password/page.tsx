@@ -23,7 +23,9 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 // import images
-const logoLight = "/images/icon-alpha-software.png";
+
+const vaquerosLogo = "/images/vaqueros-logo.png";
+
 import ParticlesAuth from "../ParticlesAuth";
 import Image from "next/image";
 import { usePostForgotPasswordMutation } from "src/slices/api/apiSlice";
@@ -60,13 +62,13 @@ const ForgetPasswordPage = (props: any) => {
                   className="position-absolute"
                   style={{
                     zIndex: 10,
-                    top: 2,
+                    top: "-10px",
                     left: "50%",
                     transform: "translateX(-50%)",
                   }}
                 >
                   <Link href="/" className="d-inline-block auth-logo">
-                    <Image src={logoLight} alt="" height={80} width={80} />
+                    <Image src={vaquerosLogo} alt="" height={100} width={104} />
                   </Link>
                 </div>
                 <Card className="mt-5 card-bg-fill pt-3">
@@ -74,7 +76,7 @@ const ForgetPasswordPage = (props: any) => {
                     <div className="text-center mt-2">
                       <h5 className="text-primary">Forgot Password?</h5>
                       <p className="text-muted">
-                        Reset password with Alpha Software
+                        Reset password with Vaqueros Software
                       </p>
 
                       <i className="ri-mail-send-line display-5 text-danger mb-3"></i>

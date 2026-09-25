@@ -15,7 +15,7 @@ import { loginUser } from "src/slices/user";
 import { loginSession } from "src/slices/session";
 import { VerificationCodeValidType } from "../reset-password/utils";
 import { VerificationCodeStatus } from "./utils";
-const logoAlpha = "/images/icon-alpha-software.png";
+const vaquerosLogo = "/images/vaqueros-logo.png";
 
 export default function ConfirmAccount() {
   const dispatch = useAppDispatch();
@@ -97,7 +97,7 @@ export default function ConfirmAccount() {
                   }}
                 >
                   <Link href="/" className="d-inline-block auth-logo">
-                    <Image src={logoAlpha} alt="" height={80} width={80} />
+                    <Image src={vaquerosLogo} alt="" height={100} width={104} />
                   </Link>
                 </div>
                 <Card
@@ -198,7 +198,7 @@ export default function ConfirmAccount() {
                       href="/auth/register"
                       className="fw-semibold text-primary text-decoration-underline"
                     >
-                      support@alpha-so.com
+                      support@vaqueros-reynosa.com
                     </Link>
                   </p>
                 </div>

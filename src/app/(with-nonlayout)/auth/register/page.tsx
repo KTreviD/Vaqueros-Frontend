@@ -23,7 +23,9 @@ import { useFormik } from "formik";
 import Link from "next/link";
 
 //import images
-const logoAlpha = "/images/icon-alpha-software.png";
+
+const vaquerosLogo = "/images/vaqueros-logo.png";
+
 import ParticlesAuth from "../ParticlesAuth";
 
 import Image from "next/image";
@@ -69,7 +71,10 @@ const Register = () => {
   return (
     <React.Fragment>
       <ParticlesAuth fixHeight={data?.message ? true : false}>
-        <div className="auth-page-content mt-lg-5">
+        <div
+          className="auth-page-content mt-lg-5"
+          // style={{ backgroundColor: "#F2C375" }}
+        >
           <Container>
             <Row className="justify-content-center">
               <Col md={8} lg={6} xl={5}>
@@ -77,21 +82,21 @@ const Register = () => {
                   className="position-absolute"
                   style={{
                     zIndex: 10,
-                    top: 2,
+                    top: "-10px",
                     left: "50%",
                     transform: "translateX(-50%)",
                   }}
                 >
                   <Link href="/" className="d-inline-block auth-logo">
-                    <Image src={logoAlpha} alt="" height={80} width={80} />
+                    <Image src={vaquerosLogo} alt="" height={100} width={104} />
                   </Link>
                 </div>
                 <Card className="mt-5 pt-3">
                   <CardBody className="p-4">
                     <div className="text-center mt-2">
-                      <h5 className="text-primary">Create New Account</h5>
+                      <h5 className="text-primary">Crea Tu Cuenta</h5>
                       <p className="text-muted">
-                        Get your free Alpha Solutions account now
+                        Consigue tu cuenta nueva de Vaqueros Reynosa F.C.
                       </p>
                     </div>
                     {data && data?.message !== "" ? (
@@ -139,12 +144,12 @@ const Register = () => {
                         </div>
                         <div className="mb-3">
                           <Label htmlFor="userpassword" className="form-label">
-                            Password <span className="text-danger">*</span>
+                            Contraseña <span className="text-danger">*</span>
                           </Label>
                           <Input
                             name="password"
                             type="password"
-                            placeholder="Enter Password"
+                            placeholder="Ingrese su contraseña"
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.password || ""}
@@ -167,13 +172,13 @@ const Register = () => {
                             htmlFor="confirmPassword"
                             className="form-label"
                           >
-                            Confirm Password{" "}
+                            Confirmar Contraseña{" "}
                             <span className="text-danger">*</span>
                           </Label>
                           <Input
                             name="confirm_password"
                             type="password"
-                            placeholder="Confirm Password"
+                            placeholder="Confirme su contraseña"
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.confirm_password || ""}
@@ -193,18 +198,21 @@ const Register = () => {
                         </div>
                         <div className="mb-4">
                           <p className="mb-0 fs-12 text-muted fst-italic">
-                            By registering you agree to the{" "}
+                            Al registrarte aceptas los{" "}
                             <Link
                               href="#"
                               className="text-primary text-decoration-underline fst-normal fw-medium"
                             >
-                              Alpha Software Terms of Use
+                              Vaqueros Reynosa F.C. Términos y Condiciones
                             </Link>
                           </p>
                         </div>
                         <div className="mt-4">
                           <Button
-                            color="danger"
+                            style={{
+                              backgroundColor: "#0c3020",
+                              borderColor: "#0c3020",
+                            }}
                             className="w-100"
                             type="submit"
                             disabled={isLoading}
@@ -212,7 +220,7 @@ const Register = () => {
                             {isLoading ? (
                               <Spinner size="sm" className="me-2" />
                             ) : (
-                              "Sign Up"
+                              "Registrarse"
                             )}
                           </Button>
                         </div>
@@ -222,13 +230,13 @@ const Register = () => {
                 </Card>
                 <div className="mt-4 text-center">
                   <p className="mb-0">
-                    Already have an account ?{" "}
+                    Ya tienes cuenta ?{" "}
                     <Link
                       href="/auth/login"
                       className="fw-semibold text-primary text-decoration-underline"
                     >
                       {" "}
-                      Sign in{" "}
+                      Iniciar Sesión
                     </Link>{" "}
                   </p>
                 </div>

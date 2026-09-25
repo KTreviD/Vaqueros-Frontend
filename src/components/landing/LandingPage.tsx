@@ -2434,7 +2434,8 @@ const LandingPage = () => {
             <div className="col-sm-6">
               <div>
                 <p className="copy-rights mb-0">
-                  {new Date().getFullYear()} © Alpha Solutions - Alpha Software
+                  {new Date().getFullYear()} © Vaqueros Reynosa - Vaqueros
+                  Software
                 </p>
               </div>
             </div>

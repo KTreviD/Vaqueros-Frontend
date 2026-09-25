@@ -5,9 +5,11 @@ import SimpleBar from "simplebar-react";
 import Image from "next/image";
 
 //import logo
-const logoSm = "/images/logo-sm.png";
-const logoDark = "/images/logo-sm.png";
-const logoLight = "/images/logo-sm.png";
+const vaquerosLogo = "/images/vaqueros-logo.png";
+
+const logoSm = vaquerosLogo;
+const logoDark = vaquerosLogo;
+const logoLight = vaquerosLogo;
 
 const avatar1 = "/images/users/avatar-1.jpg";
 
@@ -50,7 +52,7 @@ const Sidebar = ({ layoutType }: any) => {
         <div className="navbar-brand-box">
           <Link href="/" className="logo logo-dark">
             <span className="logo-sm">
-              <Image src={logoSm} alt="Logo Small" width={30} height={30} />
+              <Image src={logoSm} alt="Logo Small" width={48} height={48} />
             </span>
             <span className="logo-lg">
               <Image src={logoDark} alt="Logo Dark" width={120} height={24} />
@@ -59,16 +61,10 @@ const Sidebar = ({ layoutType }: any) => {
 
           <Link href="/" className="logo logo-light">
             <span className="logo-sm">
-              <Image src={logoSm} alt="Logo Small" width={30} height={30} />
+              <Image src={logoSm} alt="Logo Small" width={48} height={48} />
             </span>
             <span className="logo-lg">
-              <Image
-                src={logoLight}
-                alt="Logo Light"
-                width={120}
-                height={17}
-                style={{ width: "100px", height: "17px" }}
-              />
+              <Image src={logoLight} alt="Logo Light" width={48} height={48} />
             </span>
           </Link>
 
@@ -114,10 +110,7 @@ const Sidebar = ({ layoutType }: any) => {
               <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>{" "}
               <span className="align-middle">Profile</span>
             </a>
-            <a className="dropdown-item" href="/apps-chat">
-              <i className="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">Messages</span>
-            </a>
+
             <a className="dropdown-item" href="/apps-tasks-kanban">
               <i className="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>{" "}
               <span className="align-middle">Taskboard</span>
@@ -133,7 +126,7 @@ const Sidebar = ({ layoutType }: any) => {
                 Balance : <b>$5971.67</b>
               </span>
             </a>
-            <a className="dropdown-item" href="/pages-profile-settings">
+            <a className="dropdown-item" href="/pages/profile-settings">
               <span className="badge bg-success-subtle text-success mt-1 float-end">
                 New
               </span>

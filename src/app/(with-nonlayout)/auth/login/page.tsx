@@ -36,7 +36,7 @@ type LoginFormValues = {
   password: string;
 };
 
-const logoAlpha = "/images/icon-alpha-software.png";
+const vaquerosLogo = "/images/vaqueros-logo.png";
 const RESEND_DELAY = 30; // segundos
 
 const Login = () => {
@@ -171,13 +171,13 @@ const Login = () => {
                   className="position-absolute"
                   style={{
                     zIndex: 10,
-                    top: 2,
+                    top: "-10px",
                     left: "50%",
                     transform: "translateX(-50%)",
                   }}
                 >
                   <Link href="/" className="d-inline-block auth-logo">
-                    <Image src={logoAlpha} alt="" height={80} width={80} />
+                    <Image src={vaquerosLogo} alt="" height={100} width={104} />
                   </Link>
                 </div>
                 <Card className="mt-5 card-bg-fill pt-3">
@@ -185,7 +185,7 @@ const Login = () => {
                     <div className="text-center mt-2">
                       <h5 className="text-primary">Welcome</h5>
                       <p className="text-muted">
-                        Log in to Alpha Software to continue.
+                        Log in to Vaqueros Software to continue.
                       </p>
                     </div>
                     {/* {error && <Alert color="danger">{error}</Alert>} */}
@@ -284,7 +284,10 @@ const Login = () => {
 
                         <div className="mt-4">
                           <Button
-                            color="danger"
+                            style={{
+                              backgroundColor: "#0c3020",
+                              borderColor: "#0c3020",
+                            }}
                             disabled={isLoadingLogin}
                             className="btn btn-danger w-100"
                             type="submit"

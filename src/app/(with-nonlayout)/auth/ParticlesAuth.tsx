@@ -14,7 +14,7 @@ const ParticlesAuth = ({
         <div className="auth-one-bg-position auth-one-bg" id="auth-particles">
           <div className="bg-overlay"></div>
 
-          <div className="shape">
+          <div className="shape" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
@@ -38,8 +38,7 @@ const ParticlesAuth = ({
               <div className="col-lg-12">
                 <div className="text-center">
                   <p className="mb-0 text-muted">
-                    &copy; {new Date().getFullYear()} Alpha Solutions - by Alpha
-                    Software
+                    &copy; {new Date().getFullYear()} Vaqueros Reynosa F.C.
                   </p>
                 </div>
               </div>

@@ -7,7 +7,6 @@ import { PostConfirmUploadDto } from "./types";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.NEXT_PUBLIC_API_URL,
-  //baseUrl: 'https://amaterasu-production.up.railway.app/',
 
   credentials: "include",
   //   prepareHeaders: (headers, { getState }) => {
@@ -71,7 +70,14 @@ const baseQueryWithReAuth = async (
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReAuth,
-  tagTypes: ["Companies", "Industries", "Auth", "Session", "S3Files"],
+  tagTypes: [
+    "Players",
+    "Companies",
+    "Industries",
+    "Auth",
+    "Session",
+    "S3Files",
+  ],
   endpoints: builder => ({
     /////////////////////////////////////////------------------ GET ------------------/////////////////////////////////////////
 
@@ -99,6 +105,10 @@ export const apiSlice = createApi({
     getAllSessions: builder.query<any, void>({
       query: params => "/session/all",
       providesTags: ["Session"],
+    }),
+    getPlayersAdminPage: builder.query<any, void>({
+      query: params => "/players/adminPage",
+      providesTags: ["Players"],
     }),
     getCompaniesAdminPage: builder.query<any, void>({
       query: params => "/companies/adminPage",
@@ -196,6 +206,15 @@ export const apiSlice = createApi({
       }),
       //   transformResponse: (response: ResChartsData) => response
     }),
+    postPlayer: builder.mutation({
+      query: body => ({
+        url: "/players/",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Players"],
+      //   transformResponse: (response: ResChartsData) => response
+    }),
     postCompany: builder.mutation({
       query: body => ({
         url: "/companies/",
@@ -284,6 +303,14 @@ export const apiSlice = createApi({
 
     /////////////////////////////////////////------------------ PUT ------------------/////////////////////////////////////////
 
+    putPlayer: builder.mutation({
+      query: body => ({
+        url: `/players/${body.id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["Players"],
+    }),
     putCompany: builder.mutation({
       query: body => ({
         url: `/companies/${body.id}`,
@@ -311,6 +338,13 @@ export const apiSlice = createApi({
 
     /////////////////////////////////////////------------------ DELETE ------------------/////////////////////////////////////////
 
+    deletePlayer: builder.mutation({
+      query: body => ({
+        url: `/players/${body.id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Players"],
+    }),
     deleteCompany: builder.mutation({
       query: body => ({
         url: `/companies/${body.id}`,
@@ -340,12 +374,14 @@ export const {
   /////////////////////////////////////////------------------ GET ------------------/////////////////////////////////////////
   useGetIsVerificationCodeValidQuery,
   useGetAllSessionsQuery,
+  useGetPlayersAdminPageQuery,
   useGetCompaniesAdminPageQuery,
   useGetIndustriesAdminPageQuery,
   useGetFoldersAndFilesQuery,
 
   /////////////////////////////////////////------------------ POST ------------------/////////////////////////////////////////
 
+  // Sesion
   usePostLoginMutation,
   usePostRegisterMutation,
   usePostVerifyEmailMutation,
@@ -355,6 +391,9 @@ export const {
   usePostForgotPasswordMutation,
   usePostResetPasswordMutation,
   usePostLogoutMutation,
+
+  // Resto
+  usePostPlayerMutation,
   usePostCompanyMutation,
   usePostIndustryMutation,
   usePostFolderMutation,
@@ -365,12 +404,14 @@ export const {
 
   /////////////////////////////////////////------------------ PUT ------------------/////////////////////////////////////////
 
+  usePutPlayerMutation,
   usePutCompanyMutation,
   usePutIndustryMutation,
   usePutFolderMutation,
 
   /////////////////////////////////////////------------------ DELETE ------------------/////////////////////////////////////////
 
+  useDeletePlayerMutation,
   useDeleteCompanyMutation,
   useDeleteIndustryMutation,
   useDeleteFolderMutation,

@@ -27,7 +27,7 @@ import {
 import { VerificationCodeValidType } from "./utils";
 import { VerificationCodeStatus } from "../confirm-account/utils";
 
-const logoLight = "/images/icon-alpha-software.png";
+const vaquerosLogo = "/images/vaqueros-logo.png";
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -99,13 +99,18 @@ export default function ResetPassword() {
                 className="position-absolute"
                 style={{
                   zIndex: 10,
-                  top: 2,
+                  top: "-10px",
                   left: "50%",
                   transform: "translateX(-50%)",
                 }}
               >
                 <Link href="/" className="d-inline-block auth-logo">
-                  <Image src={logoLight} alt="Logo" height={80} width={80} />
+                  <Image
+                    src={vaquerosLogo}
+                    alt="Logo"
+                    height={100}
+                    width={104}
+                  />
                 </Link>
               </div>
 

@@ -4,6 +4,8 @@ import React from "react";
 import { Providers } from "@/providers";
 import { Toaster } from "react-hot-toast";
 import FakeBackendProvider from "./providers/FakeBackendProvider";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function ClientProviders({
   children,
@@ -13,7 +15,10 @@ export default function ClientProviders({
   return (
     <FakeBackendProvider>
       <Providers>
-        {children}
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="es">
+          {children}
+        </LocalizationProvider>
+
         <Toaster position="top-right" />
       </Providers>
     </FakeBackendProvider>

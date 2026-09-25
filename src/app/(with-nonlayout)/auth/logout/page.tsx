@@ -8,7 +8,8 @@ import { Card, CardBody, Col, Container, Row } from "reactstrap";
 import Link from "next/link";
 import ParticlesAuth from "../ParticlesAuth";
 
-const logoAlpha = "/images/icon-alpha-software.png";
+const vaquerosLogo = "/images/vaqueros-logo.png";
+
 import Image from "next/image";
 import { logoutSession } from "src/slices/session";
 
@@ -50,7 +51,7 @@ export default function Logout() {
                   }}
                 >
                   <Link href="/" className="d-inline-block auth-logo">
-                    <Image src={logoAlpha} alt="" height={80} width={80} />
+                    <Image src={vaquerosLogo} alt="" height={100} width={104} />
                   </Link>
                 </div>
                 <Card
@@ -64,7 +65,7 @@ export default function Logout() {
                       <h5 className="mt-2">You are Logged Out</h5>
                       <p className="text-muted">
                         Thank you for using{" "}
-                        <span className="fw-semibold">Alpha Software</span>
+                        <span className="fw-semibold">Vaqueros Software</span>
                       </p>
                     </div>
                   </CardBody>
