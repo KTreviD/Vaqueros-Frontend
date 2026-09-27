@@ -70,14 +70,7 @@ const baseQueryWithReAuth = async (
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReAuth,
-  tagTypes: [
-    "Players",
-    "Companies",
-    "Industries",
-    "Auth",
-    "Session",
-    "S3Files",
-  ],
+  tagTypes: ["Players", "Companies", "Auth", "Session", "S3Files"],
   endpoints: builder => ({
     /////////////////////////////////////////------------------ GET ------------------/////////////////////////////////////////
 
@@ -112,11 +105,7 @@ export const apiSlice = createApi({
     }),
     getCompaniesAdminPage: builder.query<any, void>({
       query: params => "/companies/adminPage",
-      providesTags: ["Companies", "Industries"],
-    }),
-    getIndustriesAdminPage: builder.query<any, void>({
-      query: params => "/industries/adminPage",
-      providesTags: ["Industries"],
+      providesTags: ["Companies"],
     }),
     getFoldersAndFiles: builder.query<
       any,
@@ -224,15 +213,6 @@ export const apiSlice = createApi({
       invalidatesTags: ["Companies"],
       //   transformResponse: (response: ResChartsData) => response
     }),
-    postIndustry: builder.mutation({
-      query: body => ({
-        url: "/industries/",
-        method: "POST",
-        body,
-      }),
-      invalidatesTags: ["Industries"],
-      //   transformResponse: (response: ResChartsData) => response
-    }),
     postFolder: builder.mutation({
       query: body => ({
         url: "/s3Files/createfolder",
@@ -319,14 +299,6 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Companies"],
     }),
-    putIndustry: builder.mutation({
-      query: body => ({
-        url: `/industries/${body.id}`,
-        method: "PUT",
-        body,
-      }),
-      invalidatesTags: ["Industries"],
-    }),
     putFolder: builder.mutation({
       query: body => ({
         url: `/s3Files/renamefolder`,
@@ -352,13 +324,6 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Companies"],
     }),
-    deleteIndustry: builder.mutation({
-      query: body => ({
-        url: `/industries/${body.id}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["Industries"],
-    }),
     deleteFolder: builder.mutation({
       query: body => ({
         url: `/s3Files/deleteFolder`,
@@ -376,7 +341,6 @@ export const {
   useGetAllSessionsQuery,
   useGetPlayersAdminPageQuery,
   useGetCompaniesAdminPageQuery,
-  useGetIndustriesAdminPageQuery,
   useGetFoldersAndFilesQuery,
 
   /////////////////////////////////////////------------------ POST ------------------/////////////////////////////////////////
@@ -395,7 +359,6 @@ export const {
   // Resto
   usePostPlayerMutation,
   usePostCompanyMutation,
-  usePostIndustryMutation,
   usePostFolderMutation,
   usePostGetPresignedUrlMutation,
   usePostConfirmUploadMutation,
@@ -406,13 +369,11 @@ export const {
 
   usePutPlayerMutation,
   usePutCompanyMutation,
-  usePutIndustryMutation,
   usePutFolderMutation,
 
   /////////////////////////////////////////------------------ DELETE ------------------/////////////////////////////////////////
 
   useDeletePlayerMutation,
   useDeleteCompanyMutation,
-  useDeleteIndustryMutation,
   useDeleteFolderMutation,
 } = apiSlice;
