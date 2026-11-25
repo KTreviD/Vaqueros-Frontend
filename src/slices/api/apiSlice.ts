@@ -3,7 +3,6 @@ import {
   createApi,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
-import { PostConfirmUploadDto } from "./types";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.NEXT_PUBLIC_API_URL,
@@ -70,7 +69,15 @@ const baseQueryWithReAuth = async (
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReAuth,
-  tagTypes: ["Players", "Companies", "Auth", "Session", "S3Files"],
+  tagTypes: [
+    "Players",
+    "Companies",
+    "Auth",
+    "Session",
+    "S3Files",
+    "Users",
+    "Matches",
+  ],
   endpoints: builder => ({
     /////////////////////////////////////////------------------ GET ------------------/////////////////////////////////////////
 
@@ -103,9 +110,32 @@ export const apiSlice = createApi({
       query: params => "/players/adminPage",
       providesTags: ["Players"],
     }),
+    getUsersAdminPage: builder.query<any, void>({
+      query: params => "/users/adminPage",
+      providesTags: ["Users"],
+    }),
     getCompaniesAdminPage: builder.query<any, void>({
       query: params => "/companies/adminPage",
       providesTags: ["Companies"],
+    }),
+    getAllMatches: builder.query<any, void>({
+      query: params => "/team/matches",
+      providesTags: ["Matches"],
+    }),
+    getMatchesLanding: builder.query<any, void>({
+      query: params => "/team/matches/matchesLanding",
+      providesTags: ["Matches"],
+    }),
+    getMatchData: builder.query<
+      MatchData,
+      {
+        matchId: number;
+        localTeamId: number;
+        awayTeamId: number;
+      }
+    >({
+      query: ({ matchId, localTeamId, awayTeamId }) =>
+        `/team/matches/${matchId}?localTeamId=${localTeamId}&awayTeamId=${awayTeamId}`,
     }),
     getFoldersAndFiles: builder.query<
       any,
@@ -204,6 +234,15 @@ export const apiSlice = createApi({
       invalidatesTags: ["Players"],
       //   transformResponse: (response: ResChartsData) => response
     }),
+    postUser: builder.mutation({
+      query: body => ({
+        url: "/users/",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Users"],
+      //   transformResponse: (response: ResChartsData) => response
+    }),
     postCompany: builder.mutation({
       query: body => ({
         url: "/companies/",
@@ -291,6 +330,14 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Players"],
     }),
+    putUser: builder.mutation({
+      query: body => ({
+        url: `/users/${body.id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["Users"],
+    }),
     putCompany: builder.mutation({
       query: body => ({
         url: `/companies/${body.id}`,
@@ -317,6 +364,13 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Players"],
     }),
+    deleteUser: builder.mutation({
+      query: body => ({
+        url: `/users/${body.id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Users"],
+    }),
     deleteCompany: builder.mutation({
       query: body => ({
         url: `/companies/${body.id}`,
@@ -340,8 +394,12 @@ export const {
   useGetIsVerificationCodeValidQuery,
   useGetAllSessionsQuery,
   useGetPlayersAdminPageQuery,
+  useGetUsersAdminPageQuery,
   useGetCompaniesAdminPageQuery,
   useGetFoldersAndFilesQuery,
+  useGetAllMatchesQuery,
+  useGetMatchesLandingQuery,
+  useGetMatchDataQuery,
 
   /////////////////////////////////////////------------------ POST ------------------/////////////////////////////////////////
 
@@ -358,6 +416,7 @@ export const {
 
   // Resto
   usePostPlayerMutation,
+  usePostUserMutation,
   usePostCompanyMutation,
   usePostFolderMutation,
   usePostGetPresignedUrlMutation,
@@ -368,12 +427,14 @@ export const {
   /////////////////////////////////////////------------------ PUT ------------------/////////////////////////////////////////
 
   usePutPlayerMutation,
+  usePutUserMutation,
   usePutCompanyMutation,
   usePutFolderMutation,
 
   /////////////////////////////////////////------------------ DELETE ------------------/////////////////////////////////////////
 
   useDeletePlayerMutation,
+  useDeleteUserMutation,
   useDeleteCompanyMutation,
   useDeleteFolderMutation,
 } = apiSlice;

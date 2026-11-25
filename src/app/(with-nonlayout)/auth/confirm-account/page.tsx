@@ -62,7 +62,7 @@ export default function ConfirmAccount() {
         dispatch(loginUser(user)); // Guardas el usuario en Redux
         dispatch(loginSession(session)); // Guardas el usuario en Redux
       }
-      router.push(`/apps-job-companies-lists`);
+      router.push(`/admin/users`);
     } catch (error: any) {
       console.error(error);
     }

@@ -1,0 +1,339 @@
+.page {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #0c0d0c;
+    color: #f5f5f5;
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  .match-card {
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px) scale(1.015);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 18px rgba(255, 255, 255, 0.05);
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(0.995);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .match-card {
+      transition: none;
+
+      &:hover,
+      &:active {
+        transform: none;
+      }
+    }
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+
+    img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      display: block;
+    }
+
+    span {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    &.vaqueros {
+      span {
+        color: var(--primary-color);
+        font-weight: 800;
+      }
+    }
+  }
+  .hero {
+    background: linear-gradient(135deg, #18251a, #101410);
+    border: 1px solid #293b2b;
+    border-radius: 18px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .hero img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(25px, 5vw, 38px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+  }
+  .hero p {
+    color: #a5b2a5;
+    margin: 8px 0 0;
+  }
+  .eyebrow {
+    color: #8fbd72;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .stat {
+    color: #fff;
+    background: #151815;
+    border: 1px solid #282e28;
+    border-radius: 12px;
+    padding: 18px 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .stat strong {
+    display: block;
+    font-size: 27px;
+    font-weight: 850;
+  }
+  .stat span {
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .section-heading h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  .filters {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  button {
+    background: #191d19;
+    border: 1px solid #303730;
+    color: #aab2aa;
+    border-radius: 8px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-weight: 650;
+  }
+  button.active {
+    background: #8fbd72;
+    border-color: #8fbd72;
+    color: #101710;
+  }
+  .matches {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .match-card {
+    background: #151815;
+    border: 1px solid #292f29;
+    border-radius: 14px;
+    padding: 18px;
+    min-width: 0;
+  }
+  .match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #a0a99f;
+    font-weight: 750;
+  }
+  .status {
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+  .finished {
+    background: #263b28;
+    color: #9bd17f;
+  }
+  .upcoming {
+    background: #332d1d;
+    color: #e5c77b;
+  }
+  .match-date {
+    font-size: 12px;
+    color: #7f887e;
+    margin-top: 12px;
+  }
+  .scoreboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 14px;
+  }
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 650;
+    min-width: 0;
+  }
+  .team img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+  }
+  .team.vaqueros {
+    color: #a9d68c;
+  }
+  .score {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 29px;
+    font-weight: 900;
+    white-space: nowrap;
+    color: #fff;
+  }
+  .score .vs {
+    color: #8b958b;
+    font-size: 19px;
+  }
+  .result {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1px;
+    margin: 12px 0;
+  }
+  .result.win {
+    color: #9bd17f;
+  }
+  .result.draw {
+    color: #e5c77b;
+  }
+  .result.loss {
+    color: #e58a7e;
+  }
+  .stadium {
+    border-top: 1px solid #292f29;
+    padding-top: 12px;
+    color: #818b80;
+    font-size: 11px;
+    text-align: center;
+  }
+  .stadium span {
+    margin-right: 6px;
+  }
+  .empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #8b958b;
+    padding: 40px;
+  }
+  @media (max-width: 650px) {
+    .page {
+      padding: 20px 14px 40px;
+    }
+    .hero {
+      padding: 22px 18px;
+      gap: 16px;
+    }
+    .hero img {
+      width: 65px;
+      height: 65px;
+    }
+    .stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .stat strong {
+      font-size: 22px;
+    }
+    .matches {
+      grid-template-columns: 1fr;
+    }
+    .section-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+  .goals-stat {
+    .goal-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    > span {
+      margin-top: 8px;
+    }
+
+    .goal-badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+
+      &.gf {
+        color: #16a34a;
+        background: rgba(22, 163, 74, 0.12);
+      }
+
+      &.gc {
+        color: #dc2626;
+        background: rgba(220, 38, 38, 0.12);
+      }
+
+      &.dg {
+        color: #2563eb;
+        background: rgba(37, 99, 235, 0.12);
+      }
+    }
+  }
+}

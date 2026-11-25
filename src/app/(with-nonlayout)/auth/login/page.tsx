@@ -82,7 +82,7 @@ const Login = () => {
         dispatch(loginUser(user));
         dispatch(loginSession(session)); // Guardas el usuario en Redux
       }
-      router.push(`/apps-job-companies-lists`);
+      router.push(`/admin/users`);
     },
   });
 
@@ -98,7 +98,7 @@ const Login = () => {
         dispatch(loginSession(session)); // Guardas el usuario en Redux
       }
 
-      router.push("/apps-job-companies-lists");
+      router.push("/admin/users");
     } catch {
       setMfaKey(k => k + 1);
     }
