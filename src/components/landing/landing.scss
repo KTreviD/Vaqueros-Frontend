@@ -1,0 +1,702 @@
+.vaqueros-landing {
+  --vr-black: #101010;
+  --vr-dark: #171717;
+  --vr-gold: #d5aa54;
+  --vr-gold-light: #edcf8d;
+  --vr-white: #fff;
+  --vr-muted: #929292;
+
+  background: #fff;
+  color: var(--vr-black);
+  overflow: hidden;
+
+  .vr-match-card {
+    position: relative;
+    cursor: pointer;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-7px) scale(1.015);
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(0.995);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vr-match-card {
+      transition: none;
+
+      &:hover,
+      &:active {
+        transform: none;
+      }
+    }
+  }
+
+  .vr-match-card {
+    .vr-match-footer a {
+      transition: color 0.25s ease;
+    }
+
+    &:hover .vr-match-footer a {
+      color: #fff;
+    }
+  }
+
+  .vr-navbar {
+    padding: 22px 0;
+    transition: all 0.3s ease;
+    background: transparent;
+
+    .navbar-nav .nav-link {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--vr-gold);
+      }
+    }
+
+    &.is-sticky {
+      padding: 12px 0;
+      background: rgba(16, 16, 16, 0.97);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+    }
+  }
+
+  .vr-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    color: white;
+
+    strong {
+      font-size: 19px;
+      letter-spacing: 1.5px;
+    }
+
+    span {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--vr-gold);
+    }
+  }
+
+  .vr-btn-gold {
+    background: var(--vr-gold);
+    color: #111;
+    border: 1px solid var(--vr-gold);
+    border-radius: 3px;
+    padding: 12px 22px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.7px;
+
+    &:hover {
+      background: var(--vr-gold-light);
+      border-color: var(--vr-gold-light);
+      color: #111;
+    }
+  }
+
+  .vr-btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 12px;
+
+    &:hover {
+      border-color: var(--vr-gold);
+      color: var(--vr-gold);
+    }
+  }
+
+  .vr-hero {
+    position: relative;
+    min-height: 750px;
+    background:
+      linear-gradient(
+        90deg,
+        #101010 0%,
+        rgba(16, 16, 16, 0.92) 45%,
+        rgba(16, 16, 16, 0.65) 100%
+      ),
+      url('/images/vaqueros/hero.jpg') center / cover no-repeat;
+    color: white;
+
+    .vr-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(16, 16, 16, 0.9), transparent 50%);
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 950;
+      line-height: 0.98;
+      letter-spacing: -3px;
+
+      span {
+        color: var(--vr-gold);
+      }
+    }
+
+    .vr-hero-description {
+      color: #c0c0c0;
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 540px;
+    }
+  }
+
+  .vr-eyebrow,
+  .vr-section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--vr-gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+
+    span {
+      display: inline-block;
+      width: 30px;
+      height: 2px;
+      background: var(--vr-gold);
+    }
+  }
+
+  .vr-hero-emblem {
+    img {
+      width: 100%;
+      max-width: 370px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  .vr-hero-social {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    span {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--vr-muted);
+    }
+
+    a {
+      color: white;
+      font-size: 20px;
+
+      &:hover {
+        color: var(--vr-gold);
+      }
+    }
+  }
+
+  .vr-hero-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .section {
+    padding: 105px 0;
+  }
+
+  .vr-section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 950;
+    line-height: 1.12;
+    letter-spacing: -1px;
+
+    span {
+      color: var(--vr-gold);
+    }
+  }
+
+  .vr-muted {
+    color: var(--vr-muted);
+    line-height: 1.9;
+    font-size: 15px;
+  }
+
+  .vr-text-link {
+    display: inline-block;
+    color: var(--vr-gold);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-top: 15px;
+
+    &:hover {
+      color: var(--vr-gold-light);
+    }
+  }
+
+  .vr-image-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .vr-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 50px 25px 22px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+      color: white;
+
+      strong {
+        font-size: 20px;
+      }
+
+      span {
+        font-size: 10px;
+        color: var(--vr-gold);
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .vr-matches,
+  .vr-sponsors {
+    background: var(--vr-black);
+  }
+
+  .vr-match-card {
+    border: 1px solid #333;
+    padding: 30px;
+    background: #191919;
+    border-radius: 5px;
+  }
+
+  .vr-match-status {
+    color: var(--vr-gold);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    span {
+      display: inline-block;
+      height: 7px;
+      width: 7px;
+      border-radius: 50%;
+      background: var(--vr-gold);
+      margin-right: 8px;
+    }
+  }
+
+  .vr-match-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 35px 0;
+  }
+
+  .vr-match-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .vr-match-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--vr-gold);
+    }
+
+    strong {
+      color: white;
+      font-size: 12px;
+    }
+
+    small {
+      color: var(--vr-muted);
+    }
+  }
+
+  .vr-opponent-placeholder {
+    width: 85px;
+    height: 85px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #444;
+    border-radius: 50%;
+    font-size: 38px;
+    color: #888;
+  }
+
+  .vr-match-footer {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    span {
+      color: #777;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    a {
+      color: var(--vr-gold);
+      font-size: 11px;
+      text-decoration: none;
+    }
+  }
+
+  .vr-fans {
+    background: #f8f8f8;
+
+    .swiper {
+      padding-bottom: 55px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--vr-gold);
+    }
+  }
+
+  .vr-max-description {
+    max-width: 650px;
+  }
+
+  .vr-fan-card {
+    background: white;
+    padding: 40px 30px;
+    min-height: 270px;
+    border: 1px solid #eee;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .vr-fan-icon {
+      color: var(--vr-gold);
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      font-weight: 850;
+      font-size: 20px;
+    }
+
+    p {
+      color: #888;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #a47b30;
+      font-size: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+  }
+
+  .vr-sponsor-card {
+    background: #1c1c1c;
+    border: 1px solid #353535;
+    padding: 40px 30px;
+    height: 100%;
+    border-radius: 4px;
+
+    &.featured {
+      border-color: var(--vr-gold);
+      background: #242016;
+    }
+
+    .vr-sponsor-icon {
+      font-size: 35px;
+      color: var(--vr-gold);
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: white;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 35px;
+      color: var(--vr-gold);
+      font-weight: 900;
+      margin: 20px 0;
+    }
+
+    p {
+      color: #999;
+      min-height: 55px;
+      line-height: 1.8;
+    }
+  }
+
+  .vr-cta {
+    padding: 75px 0;
+    background: var(--vr-gold);
+    color: #111;
+
+    span {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 500;
+      line-height: 1;
+      margin: 18px 0;
+
+      strong {
+        font-weight: 950;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .vr-btn-dark {
+    background: #111;
+    color: white;
+    border-radius: 3px;
+    padding: 15px 25px;
+    font-size: 11px;
+    font-weight: 800;
+
+    &:hover {
+      background: #333;
+      color: var(--vr-gold);
+    }
+  }
+
+  .vr-contact-card {
+    background: #f8f8f8;
+    padding: 35px;
+    border-radius: 4px;
+  }
+
+  .vr-contact-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e5e5;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    > i {
+      font-size: 28px;
+      color: #b58b3e;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    strong {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    span,
+    a {
+      color: #777;
+      font-size: 13px;
+      text-decoration: none;
+    }
+  }
+
+  .vr-footer {
+    background: #101010;
+    color: white;
+    padding: 65px 0 20px;
+  }
+
+  .vr-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    a {
+      color: #aaa;
+      font-size: 12px;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--vr-gold);
+      }
+    }
+  }
+
+  .vr-footer-social {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #444;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        background: var(--vr-gold);
+        color: #111;
+      }
+    }
+  }
+
+  .vr-footer-bottom {
+    border-top: 1px solid #333;
+    margin-top: 45px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 991px) {
+    .vr-navbar {
+      background: #101010;
+    }
+
+    .vr-navbar .navbar-collapse {
+      padding: 20px 0;
+    }
+
+    .vr-hero {
+      min-height: 680px;
+      text-align: center;
+
+      .vr-hero-description {
+        margin: 20px auto;
+      }
+
+      .vr-eyebrow,
+      .vr-hero-social {
+        justify-content: center;
+      }
+    }
+
+    .vr-hero-bottom {
+      display: none;
+    }
+
+    .vr-footer-social {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .section {
+      padding: 70px 0;
+    }
+
+    .vr-match-card {
+      padding: 20px 12px;
+    }
+
+    .vr-match-team img,
+    .vr-opponent-placeholder {
+      width: 60px;
+      height: 60px;
+    }
+
+    .vr-match-team {
+      font-size: 9px;
+    }
+
+    .vr-match-info span {
+      font-size: 22px;
+    }
+
+    .vr-match-footer {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .vr-hero h1 {
+      letter-spacing: -2px;
+    }
+  }
+}

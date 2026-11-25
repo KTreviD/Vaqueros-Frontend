@@ -18,6 +18,7 @@ const ignoredPaths = [
   "/static",
   "/favicon.ico",
   "/images",
+  "/",
   // "/robots.txt",
   // "/sitemap.xml",
 ];
@@ -37,9 +38,7 @@ export default function middleware(req: NextRequest) {
 
   // Si es pública pero ya estás logueado → redirige a app
   if (isPublicRoute && accessToken) {
-    return NextResponse.redirect(
-      new URL("/apps-job-companies-lists", req.nextUrl)
-    );
+    return NextResponse.redirect(new URL("/admin/users", req.nextUrl));
   }
 
   // Si NO es pública y NO hay tokens → redirige a login

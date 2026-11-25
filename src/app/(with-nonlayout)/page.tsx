@@ -7,10 +7,10 @@ export default async function Home() {
   const authUser = cookieStore.get("accessToken");
 
   // If user is authenticated, redirect to dashboard
-  if (authUser) {
-    redirect("/dashboard");
-  }
+  // if (authUser) {
+  //   redirect("/admin/users");
+  // }
 
   // If user is not authenticated, redirect to login
-  return <LandingPage />;
+  return <LandingPage user={authUser} />;
 }
